@@ -3,7 +3,7 @@
 
 This practical provides an overview of different phylogenetic reconstruction methods in R, using Rusing influenza virus sequences. Useful files are:
 
-- `phylo-practical.Rnw`: the *knitr* document of the practical
+- [`phylo-practical.Rnw`](https://raw.githubusercontent.com/reconhub/phylo-practical/master/phylo-practical.Rnw): the *knitr* document of the practical
 - `phylo-practical.pdf`: the pdf version of the practical; to recompile it freshly, use: `knitr::knit2pdf("phylo-practical.Rnw")`
 - `data/`: a folder containing two datasets:
   - `usflu.annot.csv`: annotations of the sequences
