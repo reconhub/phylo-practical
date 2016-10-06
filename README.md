@@ -5,7 +5,7 @@ This practical provides an overview of different phylogenetic reconstruction met
 
 **Click on the tree to access the pdf:**
 
-<a href="https://raw.githubusercontent.com/reconhub/phylo-practical/master/phylo-practical.pdf" width="300px"><img src="figs/ygg.jpg" alt="link to pdf"></a>
+<a href="https://raw.githubusercontent.com/reconhub/phylo-practical/master/phylo-practical.pdf" width="250px"><img src="figs/ygg.jpg" alt="link to pdf"></a>
 
 
 
