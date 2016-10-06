@@ -23,6 +23,8 @@ This repository contains the following files:
 
 
 
+<br>
+<br>
 
 # Compiling this document yourself
 
@@ -54,6 +56,8 @@ knitr::knit2pdf("phylo-practical.Rnw")
 
 
 
+<br>
+<br>
 
 # Feedback & contributions
 
@@ -61,6 +65,8 @@ Please send feedback using the [issues](issues) system. Contributions are welcom
 
 
 
+<br>
+<br>
 
 # Credits
 
