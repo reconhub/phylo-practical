@@ -19,7 +19,7 @@
 \newcommand{\m}[1]{\mathbf{#1}}
 \newcommand{\rcmd}[1]{\textcolor{red}{\texttt{#1}}}
 \newcommand{\code}[1]{{{\tt #1}}}
-\newcommand{\Rlogo}{\includegraphics[width=0.05\textwidth]{figs/Rlogo.pdf}}
+\newcommand{\Rlogo}{\includegraphics[width=0.05\textwidth]{Rlogo.pdf}}
 
 \title{Introduction to phylogenetics using \Rlogo}
 
@@ -53,7 +53,7 @@ opts_chunk$set(fig.path='figs/phylo-', fig.keep='high', dev='pdf', fig.width=7, 
 \vspace{-1cm}
 {
 \begin{center}
-\includegraphics[width=0.5\textwidth]{figs/ygg.jpg}
+\includegraphics[width=0.5\textwidth]{ygg.jpg}
 \end{center}
 }
 
@@ -91,29 +91,6 @@ options(width=80)
 
 \newpage
 
-
-%%
-%% This is to get the data
-%%
-%%
-<<eval=FALSE,echo=FALSE>>=
-load("Robjects/h3n2.RData")
-source("Rcode/getFlu.2.0.R")
-
-annot <- h3n2[h3n2$length>1600, ] # keep only high-quality sequences
-annot <- annot[annot$country=="USA" & as.numeric(annot$year)>1990,] # keep US after 1990
-table(annot$year) # only sequences 1993-2008
-set.seed(10)
-toKeep <- unlist(tapply(1:nrow(annot),annot$year, sample,5))
-annot <- annot[toKeep, ]
-usflu.dna <- getFluAln(annot)
-write.dna(usflu.dna, file="data/usflu-ori.fa",format="fasta", colsep="")
-temp <- data.frame(accession=annot$accession, year=as.integer(annot$year), misc=annot$"Misc info")
-write.csv(temp, file="data/usflu.annot.csv")
-@
-
-
-\newpage
 
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%
@@ -197,16 +174,31 @@ Jalview for refining the results).
 We selected 80 isolates genotyped for the hemagglutinin (HA) segment sampled in the US from 1993 to 2008.
 The dataset consists of two files: i) \texttt{usflu.fasta}, a file containing aligned DNA sequences
 and ii) \texttt{usflu.annot.csv}, a comma-separated file containing useful annotations of the sequences.
-Both files are available online from the \textit{adegenet} website:
-\begin{itemize}
-  \item DNA sequences: \url{http://adegenet.r-forge.r-project.org/files/usflu.fasta}
-  \item annotations: \url{http://adegenet.r-forge.r-project.org/files/usflu.annot.csv}
-\end{itemize}
+Both files are available online from the \textit{github} page: \url{https://github.com/reconhub/phylo-practical}.
+
+We first download these files and store them in a \texttt{data/} folder; note that \texttt{paste0}
+is only used here so that you can see the entire path name in the document:
+<<download, cache = TRUE>>=
+if (!dir.exists("data")) dir.create("data")
+
+## get annotations
+annot.url <- paste0("https://raw.githubusercontent.com/reconhub/",
+                   "phylo-practical/master/data/usflu.annot.csv")
+
+download.file(annot.url, destfile = "data/usflu.annot.csv", method = "curl")
+
+## get DNA sequences
+dna.url <- paste0("https://raw.githubusercontent.com/reconhub/",
+                   "phylo-practical/master/data/usflu.fasta")
+
+download.file(dna.url, destfile = "data/usflu.fasta", method = "curl")
+
+@
 
 
 To read the DNA sequences into R, we use \texttt{fasta2DNAbin} from the \textit{adegenet} package:
 <<>>=
-dna <- fasta2DNAbin(file="http://adegenet.r-forge.r-project.org/files/usflu.fasta")
+dna <- fasta2DNAbin(file="data/usflu.fasta")
 dna
 class(dna)
 @
@@ -239,7 +231,7 @@ polymorphic sites implemented in \textit{adegenet} \cite{tjart23}.
 
 The annotation file is read in R using the standard procedure:
 <<>>=
-annot <- read.csv("http://adegenet.r-forge.r-project.org/files/usflu.annot.csv",
+annot <- read.csv("data/usflu.annot.csv",
                   header=TRUE, row.names=1, stringsAsFactors=FALSE)
 head(annot)
 @

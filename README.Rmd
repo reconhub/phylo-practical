@@ -27,8 +27,7 @@ This repository contains the following files:
 # Compiling this document yourself
 
 To compile this document, you first need to download a handful of files:
-
-```r
+```{r, getfiles, eval=FALSE}
 ## file URLs
 base.url <- "https://raw.githubusercontent.com/reconhub/phylo-practical/master/"
 files.to.get <- c("phylo-practical.Rnw", "biblioTJ.bib", "Rlogo.pdf", "ygg.jpg")
@@ -47,8 +46,7 @@ for (i in seq_along(urls)) {
 ```
 
 And then compile the document using:
-
-```r
+```{r, compile, eval=FALSE}
 knitr::knit2pdf("phylo-practical.Rnw")
 ```
 
