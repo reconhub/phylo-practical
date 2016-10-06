@@ -1,7 +1,16 @@
 
 # Introduction to phylogenetics using R
 
-This practical provides an overview of different phylogenetic reconstruction methods in R, using Rusing influenza virus sequences. Useful files are:
+This practical provides an overview of different phylogenetic reconstruction methods in R, using influenza virus sequences. Click on the image below to access the pdf:
+
+![to the pdf](shot.png)
+
+
+
+
+# Content of the repository
+
+This repository contains the following files:
 
 - [`phylo-practical.Rnw`](https://raw.githubusercontent.com/reconhub/phylo-practical/master/phylo-practical.Rnw): the *knitr* document of the practical
 - [`phylo-practical.pdf`](https://raw.githubusercontent.com/reconhub/phylo-practical/master/phylo-practical.pdf): the pdf version of the practical; to recompile it freshly, use: `knitr::knit2pdf("phylo-practical.Rnw")`
@@ -9,6 +18,8 @@ This practical provides an overview of different phylogenetic reconstruction met
   - [`usflu.annot.csv`](https://raw.githubusercontent.com/reconhub/phylo-practical/master/data/usflu.annot.csv): annotations of the sequences
   - [`usflu.fasta`](https://raw.githubusercontent.com/reconhub/phylo-practical/master/data/usflu.fasta): a *fasta* file containing aligned sequences
 - `figs/`: figures produced by *knitr* as well as images used to generate the pdf
+
+
 
 
 
