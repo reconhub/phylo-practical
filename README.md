@@ -1,9 +1,10 @@
 
 # Introduction to phylogenetics using R
 
-This practical provides an overview of different phylogenetic reconstruction methods in R, using influenza virus sequences. Click on the image below to access the pdf:
+This practical provides an overview of different phylogenetic reconstruction methods in R, using influenza virus sequences. 
 
-<a href="https://raw.githubusercontent.com/reconhub/phylo-practical/master/phylo-practical.pdf"><img src="shot.png" alt="link to pdf"></a>
+**Click on the tree to access the pdf:**
+<a href="https://raw.githubusercontent.com/reconhub/phylo-practical/master/phylo-practical.pdf"><img src="figs/ygg.jpg" alt="link to pdf"></a>
 
 
 
