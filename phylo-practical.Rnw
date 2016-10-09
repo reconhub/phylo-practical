@@ -603,13 +603,16 @@ parsimony(tre.ini, dna2)
 @
 Then, optimization of the parsimony is achieved by:
 <<>>=
-tre.pars <- optim.parsimony(tre.ini, dna2)
+tre.pars <- pratchet(dna2, start=tre.ini, trace=0)
+parsimony(tre.pars, dna2)
 tre.pars
 @
 
 Here, the final result is very close to the original tree.
-The obtained tree is unrooted and does not have branch lengths, but it can be plotted as previously:
+The obtained tree is unrooted and does not have branch lengths. We add branch lengths proportional to the number of substitution with the function \texttt{acctran}.  
+It can be plotted as previously:
 <<out.width="\\textwidth">>=
+tre.pars <- acctran(tre.pars, dna2)
 plot(tre.pars, type="unr", show.tip=FALSE, edge.width=2)
 title("Maximum-parsimony tree")
 tiplabels(tre.pars$tip.label, bg=transp(num2col(annot$year, col.pal=myPal),.7),
@@ -722,13 +725,12 @@ fit.ini
 @
 
 \noindent We now have all the information needed for seeking a maximum likelihood solution using
-\texttt{optim.pml}; we specify that we want to optimize tree topology (\texttt{optNni=TRUE}), base
-frequencies (\texttt{optBf=TRUE}), the rates of all possible subtitutions (\texttt{optQ=TRUE}),
+\texttt{optim.pml}; we specify that we want to optimize tree topology (\texttt{rearrangement="stochastic"}), use a "GTR" model \cite{Tavare1986}, optimize base frequencies and the rates of all possible subtitutions,
 and use a gamma distribution to model variation in the substitution rates across
 sites (\texttt{optGamma=TRUE}):
 <<echo=TRUE, results='hide'>>=
-fit <- optim.pml(fit.ini, optNni=TRUE, optBf=TRUE,
-                 optQ=TRUE, optGamma=TRUE)
+fit <- optim.pml(fit.ini, rearrangement="stochastic", model="GTR", 
+    optGamma=TRUE)
 @
 <<>>=
 fit
