@@ -61,7 +61,7 @@ knitr::knit2pdf("phylo-practical.Rnw")
 
 # Feedback & contributions
 
-Please send feedback using the [issues](issues) system. Contributions are welcome as pull requests.
+Please send feedback using the [issues](http://github.com/reconhub/phylo-practical/issues) system. Contributions are welcome as pull requests.
 
 
 

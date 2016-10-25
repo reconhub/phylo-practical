@@ -11,3 +11,4 @@ R/.RData
 *.toc
 *.tex
 cache/*
+.Rhistory
